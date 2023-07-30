@@ -1,0 +1,386 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.columns {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+.background-column {
+    background-color: #f2f2f2;
+    width: 400px;
+    overflow: hidden;
+}
+
+.prodContainer {
+    margin-left: 10px;
+}
+
+.prodContainer label {
+    display: block;
+    margin-top: 10px;
+}
+
+.prodContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 10px;
+}
+
+label {
+    grid-column: 1;
+    font-weight: bold;
+}
+#rating {
+    padding-top: 5px;
+}
+p {
+    margin-top: 10px;
+    grid-column: 2;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  }
+  
+
+.goBackLink {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.carousel {
+    height: 400px;
+    /* max-width: 300px; */
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    display: inline-block;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+    width: 100%;
+}
+
+.slide > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slide[data-active]{
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+}
+
+.carousel-button{
+    z-index: 999;
+    position: absolute;
+    font-size: 1rem;
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.973);
+    cursor: pointer;
+    padding: 5px 5px;
+    font-weight: bold;
+}
+
+.carousel-button:hover, .carousel-button:focus{
+    color: #000;
+}
+
+.carousel-button:focus{
+    outline: 1px solid black;
+}
+
+.carousel-button.next{
+    right: 1rem;
+    background-color: #4CAF50;
+}
+
+.carousel-button.prev{
+    left: 1rem;
+    background-color: #007bff;
+}
+
+.circleContainer{
+    z-index: 9;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.circle{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(80, 78, 78, 0.418);
+}
+
+.active{
+    background-color: white;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .cart,
+  .buy {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart:hover,
+  .buy:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Existing CSS styles */
+
+/* Add the following media query at the end of your CSS file */
+@media screen and (max-width: 768px) {
+
+    .goBackLink{
+        display: none;
+    }
+
+    .background-column {
+      width: 100%;
+    }
+  
+    .carousel {
+      height: 40vh;
+    }
+  
+    .columns {
+      flex-direction: column; 
+    }
+  
+    .column {
+      padding: 0;
+    }
+  
+    .carousel-button {
+      font-size: 1rem;
+    }
+  
+    .circleContainer {
+      top: -30px;
+    }
+  
+    .prodContainer {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        row-gap: 10px;
+        gap: 5px;
+        margin: 0;
+        grid-auto-rows: 30px;
+        flex-grow: 1;
+    }
+  
+    .prodContainer label {
+        display: none;
+    }
+
+    .prodContainer p {
+        height: 30px;
+        padding: 5px;
+    }
+
+    #name, #price, #stock{
+        grid-column: 1 / span 2;
+      }
+  
+      #orders{
+        height: 30px;
+        padding-left: 10px;
+        border-left: 1px solid black;
+      }
+      
+
+    #rating {
+      padding-top: 2px;
+    }
+  
+    p {
+      margin-top: 5px; 
+      border-bottom: none;
+      box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    }
+  
+    .quantity {
+      display: flex;
+      gap: 5px; 
+    }
+  
+    .quantityField {
+      width: 50px; 
+    }
+  
+    .cart,
+    .buy {
+      padding: 8px 16px;
+    }
+
+    label[for = "description"] {
+        display: block;
+        grid-column: 1 / span 2;
+        grid-row: 7;
+    }
+    
+    label[for = "origins"] {
+        display: block;
+        grid-row: 11;
+    }
+
+    #description {
+      grid-row: 8 / span 3;
+      grid-column: 1 / span 2;
+      height: 100px;
+      overflow-y: scroll;
+    }
+    #origins {
+        grid-row: 11;
+      }
+  
+      .container {
+        position: relative;
+        min-height: 100vh;
+      }
+      .columns {
+        flex-direction: column;
+      }
+    
+      .column {
+        padding: 0;
+      }
+      /* ... Other existing styles ... */
+    
+      .btn-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+    
+      .cart,
+      .buy {
+        padding: 8px 16px;
+      }
+
+      .content-bottom-spacing {
+        margin-bottom: 80px; /* Adjust the value as needed */
+      }
+
+      .buy-now {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+        
+    .buy-now-popup {
+        width: 100%;
+        height: 200px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #dbdbdb;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: none;
+    }
+
+    .buy-now-content{
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: auto 1fr;
+        row-gap: 10px;
+        gap: 5px;
+        margin: 0;
+        grid-auto-rows: 50px;
+    }
+    .buyBtn{
+        bottom: 0;
+        grid-column: 1/span 2;
+    }
+
+    .quantity{
+        grid-row: 1;
+        grid-column: 1/span 1;
+    }
+    .close {
+        grid-row: 1;
+        grid-column: 2/span 1;
+        text-align: end;
+        color: black;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .show-buy-now {
+        display: block;
+    }
+  }

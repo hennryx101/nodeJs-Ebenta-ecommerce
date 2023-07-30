@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../Css/viewProdDetails.css">
+    <script src="../../Js/products/openProduct.js" defer type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="goBackLink">Go back</a>
+        <div class="del"></div>
+        <div class="columns">
+            <div class="column background-column">
+                <section aria-label="selected photos">
+                    <div class="carousel" data-carousel>
+                        <ul data-slides>
+                        </ul>
+                        <div class="circleContainer">
+                        </div>
+
+                        <button class="carousel-button next" data-carousel-button="next" >Next</button>
+                        <button class="carousel-button prev" data-carousel-button="prev" >Prev</button>
+                    </div>
+                </section>
+                <div class="message"></div>
+            </div>
+            <div class="column">
+                <div class="prodContainer content-bottom-spacing">
+                    <label for="name">Name:</label>
+                    <p id="name" ></p>
+                    <!-- <br>  -->
+                    <label for="price" >Price:</label>
+                    <p id="price"></p>
+                    <!-- <br> -->
+                    <label for="stock" >Stock:</label>
+                    <p id="stock"></p>
+                    <!-- <br> -->
+                    <label for="rating">Ratings:</label>
+                    <div id="rating"></div>
+                    <!-- <br> -->
+                    <label for="rating">Orders:</label>
+                    <p id="orders"></p>
+                    <!-- <br> -->
+                    <label for="description">Description:</label>
+                    <p id="description"></p>
+                    <!-- <br> -->
+                    <label for="origins">Origin:</label>
+                    <p id="origins"></p>
+                    <!-- <br> -->
+                    <br>
+                    <div class="btn-container">
+                        <div class="add-cart cart">Add Cart</div>
+                        <div class="buy-now" >Buy now</div>
+                        <div class="buy-now-popup" id="buyNowPopup">
+                            <div class="buy-now-content">
+                                <div class="close">x</div>
+                                <div class="quantity">
+                                    <button data-button="add" class="quantBtn">+</button>
+                                    <input type="number" class="quantityField" value="1">
+                                    <button data-button="remove" class="quantBtn">-</button>
+                                </div>
+                                <div class="buyBtn buy">Buy now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buynow = document.querySelector(".buy-now").addEventListener("click", e => {
+            const buyNowPopup = document.getElementById('buyNowPopup');
+            buyNowPopup.classList.add('show-buy-now');
+        });
+
+        const close = document.querySelector(".close").addEventListener("click", e => {
+            const buyNowPopup = document.getElementById('buyNowPopup');
+            buyNowPopup.classList.remove('show-buy-now');
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicacies</title>
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="../Css/orders.css">
+    <script src="../Js/index/script.js" defer type="module"></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../System-img/[removal.ai]_c2a86c43-4516-4965-b38c-14655b039c5e-group.png" class="img-logo" alt="Logo">
+                <!-- <h1 class="logo-txt "><a href="/">Benta nayan</a></h1> -->
+                <div class="typewriter"><p id="typing-text"></p></div>
+
+            </div>
+
+            <nav class="mobileNav">
+                <ul class="topNav">
+                    <li class="primary-nav zoom"> <div class="primary-nav"><a href="/">Home</a></div> </li>
+                    <li class="primary-nav zoom login"> <div class="primary-nav"><a href="./accounts/login.html">Login</a></div> </li>
+                    <li class="primary-nav zoom signup"> <div class="primary-nav"><a href="./accounts/signup.html">Signup</a></div> </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="main-container">
+            <div class="primary-container">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Welcome to Ebenta,</h3>
+                        <h3>Ebenta provides more than just a ordinary food.</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Discover a World of Wonders at Ebenta Nayan Ecommerce - Where Every Moment is a Shopping Adventure! Immerse Yourself in the Magic of Endless Choices</p>
+                    </div>
+                </div>
+                    <img class="img" src="../System-img/[removal.ai]_88485a5f-85a8-47c9-a356-c46701d3a46f-pexels-melvin-buezo-2529148.png" alt="">
+                <div class="container"></div>
+            </div>
+            <div class="spacer"></div>
+            <div class="products-container">
+                <div class="left-column show">
+                    <div class="category-products">
+                        <h2>Search Filter</h2>
+
+                        <form class="filter-form">
+
+                            <div class="category">
+                                <label for="price">Price Range(₱)</label>
+                                <div class="input-range">
+                                    <input type="number" name="minPrice" id="minPrice" placeholder="MIN">
+                                    <input type="number" name="maxPrice" id="maxPrice" placeholder="MAX">
+                                </div>
+                            </div>
+                            <div class="category">
+                                <label for="ratings" class="ratings">Rating</label>
+                                <input type="number" class="ratingNumber" name="ratings" id="ratings" style="display: none;">
+                                <div class="rating" data-value = "1">1 Star & Up</div>
+                                <div class="rating" data-value = "2">2 Stars & Up</div>
+                                <div class="rating" data-value = "3">3 Stars & Up</div>
+                                <div class="rating" data-value = "4">4 Stars & Up</div>
+                                <div class="rating" data-value = "5">5 Stars</div>
+    
+                            </div>
+                            
+                            <button type="submit" class="submitBtn">Apply</button>
+                            <input type="reset">
+                        </form>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <ul class="cards"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2023 Your Company. All rights reserved.</p>
+          <nav class="footer-nav">
+            <a href="/">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+    </footer> 
+
+    <script>
+        const words = [
+            "lephant",
+            "xciting",
+            "nchanting",
+            "lastic",
+            "nergetic",
+            "nigmatic",
+            "nticing",
+            "xquisite",
+            "xuberant",
+            "ccentric",
+            "Benta nayan"
+        ];
+
+
+        const typingTextElement = document.getElementById("typing-text");
+
+        function typeText(index, text) {
+        if (index >= text.length) {
+            // Pause between words
+            setTimeout(() => {
+                typingTextElement.textContent = ""; // Clear the old text
+                index = 0;
+                const nextWordIndex = (words.indexOf(text) + 1) % words.length;
+                const nextWord = words[nextWordIndex];
+                typeText(index, nextWord);
+            }, 5000);
+            return;
+        }
+
+        const char = text.charAt(index);
+        typingTextElement.textContent += char;
+        index++;
+
+        setTimeout(() => {
+            typeText(index, text);
+        }, 300);
+        }
+
+        // Start typing the first word
+        typeText(0, words[0]);
+
+    </script>
+</body>
+</html>

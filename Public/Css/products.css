@@ -1,0 +1,122 @@
+*, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+/* products page  */
+
+/* 
+.containerProducts{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.productsTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+*/
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.containerProducts {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.containerProducts a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.productsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.productsTable th,
+.productsTable td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.tbody {
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:hover{
+    background-color: #424242;
+    color: white;
+}
+
+td a:hover{
+    color: blue;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .accept-btn, .cancel-btn {
+        padding: 6px 10px;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        display: grid;
+        grid-template-columns: 15ch auto;
+        padding: 0.75rem 1rem;
+    }
+
+    td:first-child {
+        padding-top: 2rem;
+    }
+
+    td:last-child {
+        padding-bottom: 2rem;
+    }
+
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    .btn-View{
+        border: 1px solid green;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}

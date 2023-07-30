@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../Css/address.css">
+    <script src="../../Js/address/showAddress.js" defer type="module"></script>
+    <script src="../../Js/address/submit.js" defer></script>
+</head>
+<body>
+    <div class="primary-container">
+        <div class="process-container">
+          <div class="lines">
+            <div class="line1"></div>
+            <span class="circle1">1</span>
+          </div>
+          <div class="lines">
+            <div class="line2"></div>
+            <span class="circle2">2</span>
+          </div>
+          <div class="lines">
+            <div class="line3"></div>
+            <span class="circle3">3</span>
+          </div>
+          <div class="lines">
+            <div class="line4"></div>
+            <span class="circle4">4</span>
+          </div>
+          <div class="lines">
+            <div class="line5"></div>
+            <span class="circle5">5</span>
+          </div>
+        </div>
+
+        <div class="container">
+            <form class="addressForm">
+                <label for="region">Region</label>
+                <select name="region" class="region"></select>
+                <br>
+                <label for="province">Province</label>
+                <select name="province" class="province"></select>
+                <br>
+                <label for="municipality">Municipality</label>
+                <select name="municipality" class="municipality"></select>
+                <br>
+                <label for="baranggay">Baranggay</label>
+                <select name="baranggay" class="baranggay"></select>
+                <br>
+                <label for="baranggay">Street</label>
+                <input type="text" name="street" class="street">
+                <button class="submitAddress">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

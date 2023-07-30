@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .primary-container {
+    display: flex;
+    flex-wrap: wrap-reverse; /* Reverse the order for mobile */
+  }
+  
+  .container {
+    flex: 1;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  .addressForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .street {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+
+  }
+
+  .submitAddress {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submitAddress:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Process container styles */
+  .process-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  
+  .lines {
+    width: 5px;
+    background-color: #ccc;
+    flex: 1;
+    position: relative;
+    /* background-color: #0056b3; */
+  }
+  
+  span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -6px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+    font-size: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-around;
+      align-content: center;
+      flex-direction: column;
+  }
+  
+  .process-container .active {
+    opacity: 1;
+  }
+  
+  .animate-line{
+    height: 100%;
+    background-color: #0056b3;
+    animation: slidein 1s ease-in 1 normal;
+  }
+  
+  .remove-line{
+    height: 0%;
+    background-color: #007bff;
+    animation: slideout 1s ease-out 1 normal;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-top: 100%;
+      height: 0%;
+    }
+    to{
+      margin-top: 0%;
+      height: 100%;
+    }
+  }
+  
+  @keyframes slideout {
+    from {
+      margin-top: 0%;
+      height: 100%;
+    }
+    to{
+      margin-top: 100%;
+      height: 0%;
+    }
+  }

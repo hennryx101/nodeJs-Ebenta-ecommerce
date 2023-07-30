@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../Js/products/addProducts.js" defer type="module"></script>
+    <link rel="stylesheet" href="../../Css/addProduct.css">
+    <script src="../../Js/utils/carousel.js" defer type="module"></script>
+    <!-- <script src="../../Js/utils/functionCarousel.js" defer type="module"></script> -->
+</head>
+<body>
+    <div class="container">
+        <a href="./products.html" class="goBackLink">Go back</a>
+        <div class="columns">
+            <div class="column background-column">
+                <section aria-label="selected photos">
+                    <div class="carousel" data-carousel>
+                        <ul data-slides>
+                        </ul>
+                        <div class="circleContainer">
+                        </div>
+
+                        <button class="carousel-button next" data-carousel-button="next" >Next</button>
+                        <button class="carousel-button remove" >Remove</button>
+                        <button class="carousel-button prev" data-carousel-button="prev" >Prev</button>
+                    </div>
+                </section>
+            </div>
+            <div class="error imageE"></div>
+            
+            <div class="column">
+                <form class="addProductForm">
+                    <input type="file" id="files" name="files" multiple>
+                    <br>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                    <div class="error name"></div>
+                    <br>
+                    <label for="price">Price</label>
+                    <input type="text" id="price" name="price">
+                    <div class="error price"></div>
+                    <br>
+                    <label for="stock">Stock</label>
+                    <input type="text" id="stock" name="stock">
+                    <div class="error stock"></div>
+                    <br>
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" cols="50"></textarea>
+                    <div class="error description"></div>
+                    <br>
+                    <label for="origins">Origin</label>
+                    <input type="text" id="origins" name="origins">
+                    <div class="error origin"></div>
+                    <br>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

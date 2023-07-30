@@ -1,0 +1,88 @@
+:root {
+  --check: "✓";
+  --star: "★";
+  --bg-10: #068FFF;
+  --bg-20: #F8F6F4;
+  --bg-30: #4E4FEB;
+  --bg-60: #EEEEEE;
+  --bg-100: #000000;
+  --bg-40: #777;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: var(--bg-60);
+    font-family: Arial, sans-serif;
+  }
+
+  .checkout-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .back-link{
+    left: 0;
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+  }
+
+  .checkout-items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .checkout-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--bg-20);
+  }
+  .order-pending-btn,
+  .order-receive-btn,
+  .order-cancel-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .order-receive-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .order-pending-btn{
+    cursor: not-allowed;
+    background-color: #707070;
+    color: #000000;
+    margin-right: 10px;
+  }
+
+  .order-cancel-btn {
+    background-color: #f44336;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 400px) {
+    .checkout-item {
+      flex-direction: column;
+    }
+  }
