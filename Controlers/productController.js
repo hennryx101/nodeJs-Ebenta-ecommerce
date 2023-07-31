@@ -31,7 +31,7 @@ const allProducts = async (req, res) => {
     }
     
     if (ratings) {
-        queryObject.ratings = Number(ratings);
+        queryObject.ratings = {$gte: Number(ratings) };
     }
     
     try {

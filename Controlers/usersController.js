@@ -13,7 +13,7 @@ const getUser = async (req, res) => {
             }
             const name = user.username;
             req.user = name;
-            res.status(200).json({ user: {name: name, isAdmin: user.isAdmin }});
+            res.status(200).json({ user: { name: name, isAdmin: user.isAdmin, id: user._id }});
         }else{
             res.status(404).json({errors: error});
         }

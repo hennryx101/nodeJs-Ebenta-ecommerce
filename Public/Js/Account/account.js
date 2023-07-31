@@ -5,6 +5,7 @@ const cartContainer = document.querySelector(".cart");
 const logOutBtn = document.querySelector(".log-out");
 const username = document.querySelector('.user-name');
 const isAdmin = document.querySelector('.isAdmin');
+const addAddress = document.querySelector(".add-address");
 
 const userDetails = document.querySelector(".user-details");
 
@@ -36,7 +37,8 @@ async function fetchUser(){
         signUpA.textContent = "Add account";
         signUpdiv.appendChild(signUpA);
 
-        console.log(data.user.name);
+        // add a attribute for add address button to get the id
+        addAddress.setAttribute("data-id", data.user.id);
 
         if(data.user){
             username.textContent = data.user.name;
@@ -77,3 +79,11 @@ async function logoutFunction(e){
         console.log(error);
     }
 };
+
+addAddress.addEventListener('click', e => {
+    e.preventDefault();
+
+    console.log(e.target.dataset.id);
+    window.location.href = `../Views/accounts/address.html?id=${e.target.dataset.id}`;
+
+});

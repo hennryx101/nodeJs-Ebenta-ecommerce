@@ -1,5 +1,5 @@
 import ScrollFunction from "../utils/scrollFunction.js";
-import {Loading, RemoveModal} from "../utils/loading.js";
+import {Loading, RemoveModal, SuccessMessage} from "../utils/loading.js";
 import { CartSvg } from "../utils/svg.js";
 import fetchOrders from "../products/acceptOrders.js";
 import { ShowLeftColumn } from "../utils/showLeftColumn.js";
@@ -18,17 +18,6 @@ async function fetchUser(){
         });
     
         const data = await res.json();
-        
-        // logout button
-        const logoutLi = document.createElement("li");
-        const logoutBtnContainer = document.createElement("div");
-        logoutLi.classList.add("primary-nav");
-        logoutLi.classList.add("zoom");
-        logoutBtnContainer.classList.add("primary-nav");
-        logoutBtnContainer.addEventListener("click", (e) => logoutFunction(e));
-        logoutBtnContainer.textContent = "Logout";
-        logoutLi.appendChild(logoutBtnContainer);
-
         // a link for cart
         const svgContainerLi = document.createElement("li");
         const svgContainerDiv = document.createElement("div");
@@ -63,10 +52,6 @@ async function fetchUser(){
         transacA.textContent = "History ";
         transacDiv.appendChild(transacA);
         transacContainer.appendChild(transacDiv);
-
-        // for admin
-        // producDiv.appendChild(productA);
-        // productLi.appendChild(producDiv);
         
         // admin signUp
         const signUpButton = document.createElement("li");
@@ -105,7 +90,6 @@ async function fetchUser(){
         userDiv.classList.add("primary-nav");
         userA.appendChild(userDiv);
         userLi.classList.add("primary-nav");
-        // userLi.classList.add("zoom");
         const accountIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>`;
        
 
@@ -166,13 +150,11 @@ async function fetchUser(){
         Acceptcontainer.append(tableWrapper);
 
         if(data.user.isAdmin){
-            console.log("true");
             ScrollFunction(false);
             fetchOrders();
         }
 
         if(data.user.isAdmin){
-            console.log("log");
             const mainContainer = document.querySelector(".main-container");
             mainContainer.replaceChildren();
             mainContainer.style.paddingTop = "30px";
@@ -186,22 +168,12 @@ async function fetchUser(){
             svgContainer.appendChild(productA);
             topNav.append(svgContainerLi);
 
-             // product button 
-            // const productLi = document.createElement("li");
-            // const producDiv = document.createElement("div");
-
-            // producDiv.classList.add("primary-nav");
-            // productLi.classList.add("primary-nav");
-            // productLi.classList.add("zoom");
-            // productA.textContent = "Products";
         }
         
 
         if(data.user){
-            // userDiv.textContent = data.user.name;
             signup.remove();
             login.remove();
-            // topNav.append(userLi, logoutLi); 
 
             userDiv.insertAdjacentHTML("beforeend", accountIcon);
             userLi.appendChild(userA);
@@ -210,37 +182,20 @@ async function fetchUser(){
         
         if(data.errors){
             console.log(data.errors);
+            RemoveModal();
+            SuccessMessage("", false);
         }
         ShowLeftColumn();
         RemoveModal();
     } catch (error) {
         RemoveModal();
+        SuccessMessage("", false);
         console.log(error);
     }
 
 }
 
 fetchUser();
-
-async function logoutFunction(e){
-    e.preventDefault();
-    console.log("click");
-    try {
-        const res = await fetch("/api/auth/user/logout", {
-            method: "GET"
-        });
-    
-        const data = await res.json();
-        console.log(data);
-        console.log(data.redirect);
-        if(data.redirect){
-            window.location.href = data.redirect;
-        }
-    } catch (error) {
-        console.log(error);
-    }
-};
-
 
 async function fetchProduct() {
 

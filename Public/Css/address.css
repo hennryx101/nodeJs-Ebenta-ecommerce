@@ -4,9 +4,23 @@
     padding: 0;
   }
   
-  .primary-container {
+  .wrapper{
+    max-width: 100%;
     display: flex;
-    flex-wrap: wrap-reverse; /* Reverse the order for mobile */
+    justify-content: center;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  .primary-container {
+    min-width: calc(100% - 20%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    /* grid-auto-rows: 400px; */
+
+    /* display: flex;
+    flex-wrap: wrap-reverse; Reverse the order for mobile */
   }
   
   .container {
@@ -53,7 +67,24 @@
     font-size: 16px;
     cursor: pointer;
   }
+
+  .cancel{
+    margin-top: 10px;
+    color: white;
+    padding: 10px 20px;
+    background-color: rgb(223, 37, 4);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
   
+  .cancel a {
+    text-decoration: none;
+    color: white;
+  }
+
   .submitAddress:hover {
     background-color: #0056b3;
   }
